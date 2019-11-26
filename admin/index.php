@@ -1,3 +1,22 @@
+<?php
+session_start();
+if (!$_SESSION['login']) {
+  echo "<script type= 'text/>javascript'>
+  alert ('Maaf anda hasur login); 
+  window.location='../login.php'</script>";
+}else {
+  include('../config/database.php');
+  $user= new Database();
+  $user=mysqli_query($user->koneksi,
+  "SELECT * FROM users WHERE password='$_SESSION[login]");
+
+  $user=mysqli_fetch_array($user);
+
+
+
+?>
+
+
 <!--Header-->
 <?php
 include('../layouts/includes/head.php');
@@ -35,3 +54,6 @@ include('../layouts/includes/head.php');
     <!--end scripts-->
     
 </html>
+<?php
+}
+?>
