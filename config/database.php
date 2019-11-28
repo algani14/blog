@@ -1,7 +1,7 @@
-<?php 
-class Database{
-
-    public $host = "localhost",$user = "root", $pass= 123,$db="blog_al";
+<?php
+class Database
+{
+    public $host = "localhost", $user = "root", $pass = 123, $db = "blog_al";
     public $koneksi;
     public function __construct()
     {
@@ -12,11 +12,14 @@ class Database{
             $this->db
         );
         if ($this->koneksi) {
-            //echo "berhasil";
-        }else {
-            echo "koneksi Database Gagal";
+            // echo "berhasil";
+        } else {
+            echo "Koneksi Database Gagal";
         }
     }
 }
 $db = new Database();
-?>
+// kategori
+include 'kategori.php';
+// artikel
+include 'artikel.php';
